@@ -1,8 +1,8 @@
 module.exports = {
     branches: [ 'main' ], //релизные ветки
-    preset: 'conventionalcommits',
     plugins: [
         [ '@semantic-release/commit-analyzer', { // Определяет, какой тип коммита сделан (major, minor, patch)
+            "preset": "angular",
             releaseRules: [
                 { type: 'fix', release: 'patch' },
                 { type: 'minor', release: 'minor' },
