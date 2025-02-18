@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/upstars-global/test-repo/compare/v1.0.2...v1.0.3) (2025-02-18)
+
+
+### Bug Fixes
+
+* npm uninstall @semantic-release/npm ([ea04710](https://github.com/upstars-global/test-repo/commit/ea04710753f7cbee00ff6270f189de5708e1d604))
+
 ## [1.0.2](https://github.com/upstars-global/test-repo/compare/v1.0.1...v1.0.2) (2025-02-18)
 
 
