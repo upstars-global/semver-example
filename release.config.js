@@ -5,7 +5,7 @@ module.exports = {
         "@semantic-release/release-notes-generator", // Генерирует release notes
         "@semantic-release/changelog", // Обновляет CHANGELOG.md
         ["@semantic-release/git", {
-            "assets": ["package.json", "CHANGELOG.md"],
+            "assets": ["package.json", "yarn.lock", "CHANGELOG.md"],
             "message": "chore(release): ${nextRelease.version} [skip ci]"
         }],
         ["@semantic-release/exec", {
