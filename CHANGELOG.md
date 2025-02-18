@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/upstars-global/test-repo/compare/v1.0.1...v1.0.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* ALPA-007 - try to fix bump package.json version ([cfe66bb](https://github.com/upstars-global/test-repo/commit/cfe66bb124395085f13f0ccca3f502b73f3c3828))
+
 ## [1.0.1](https://github.com/upstars-global/test-repo/compare/v1.0.0...v1.0.1) (2025-02-18)
 
 
