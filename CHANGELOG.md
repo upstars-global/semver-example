@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/upstars-global/test-repo/compare/v1.0.0...v1.0.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* test test-path ([d230342](https://github.com/upstars-global/test-repo/commit/d230342a01eaf4a92cb0900622cfb7d8c35f60de))
+
 # 1.0.0 (2025-02-18)
 
 
