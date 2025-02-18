@@ -1,3 +1,5 @@
+# [1.2.0](https://github.com/upstars-global/test-repo/compare/v1.1.1...v1.2.0) (2025-02-18)
+
 ## [1.1.1](https://github.com/upstars-global/test-repo/compare/v1.1.0...v1.1.1) (2025-02-18)
 
 # [1.1.0](https://github.com/upstars-global/test-repo/compare/v1.0.7...v1.1.0) (2025-02-18)
