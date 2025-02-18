@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/upstars-global/test-repo/compare/v1.0.6...v1.0.7) (2025-02-18)
+
+
+### Bug Fixes
+
+* try to fix include package.json in release commit ([12262dc](https://github.com/upstars-global/test-repo/commit/12262dc261f3af249480c16f833c79bd071b6496))
+
 ## [1.0.6](https://github.com/upstars-global/test-repo/compare/v1.0.5...v1.0.6) (2025-02-18)
 
 
