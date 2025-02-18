@@ -7,6 +7,7 @@ module.exports = {
                 { type: 'fix', release: 'patch' },
                 { type: 'minor', release: 'minor' },
                 { breaking: true, release: 'major' },
+                { type: 'BREAKING_CHANGES', release: 'major' },
                 { release: 'patch' } // По умолчанию всегда patch
             ]
         } ],
