@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/upstars-global/test-repo/compare/v1.0.3...v1.0.4) (2025-02-18)
+
+
+### Bug Fixes
+
+* add yarn ([807f569](https://github.com/upstars-global/test-repo/commit/807f5694ef8a571e0efa8271a337593165d18772))
+* add yarn №2 ([4e16e71](https://github.com/upstars-global/test-repo/commit/4e16e7150380bc57b276ac2cd2a2e8a3800d392e))
+
 ## [1.0.3](https://github.com/upstars-global/test-repo/compare/v1.0.2...v1.0.3) (2025-02-18)
 
 
