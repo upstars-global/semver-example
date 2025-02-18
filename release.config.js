@@ -7,6 +7,9 @@ module.exports = {
         ["@semantic-release/git", {
             "assets": ["package.json", "CHANGELOG.md"],
             "message": "chore(release): ${nextRelease.version} [skip ci]"
+        }],
+        ["@semantic-release/exec", {
+            "prepareCmd": "node -e \"let pkg=require('./package.json'); pkg.version='${nextRelease.version}'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));\""
         }]
     ]
 };
