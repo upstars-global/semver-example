@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/upstars-global/test-repo/compare/v1.0.4...v1.0.5) (2025-02-18)
+
+
+### Bug Fixes
+
+* add @semantic-release/exec ([44c4021](https://github.com/upstars-global/test-repo/commit/44c40217acd633152c5e4ee00c66708af2eb3c9d))
+
 ## [1.0.4](https://github.com/upstars-global/test-repo/compare/v1.0.3...v1.0.4) (2025-02-18)
 
 
