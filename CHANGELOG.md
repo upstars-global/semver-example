@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/upstars-global/test-repo/compare/v1.0.5...v1.0.6) (2025-02-18)
+
+
+### Bug Fixes
+
+* ensure package.json version update with yarn ([0312825](https://github.com/upstars-global/test-repo/commit/03128258bdb02145de9c5ea70d7c4ed344638388))
+
 ## [1.0.5](https://github.com/upstars-global/test-repo/compare/v1.0.4...v1.0.5) (2025-02-18)
 
 
