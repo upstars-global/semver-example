@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/upstars-global/test-repo/compare/v1.0.7...v1.1.0) (2025-02-18)
+
+
+### Features
+
+* test feat in sqwosh ([#4](https://github.com/upstars-global/test-repo/issues/4)) ([d7eba27](https://github.com/upstars-global/test-repo/commit/d7eba27be9506dfaaaafda5855bcdc69aa2b957a))
+
 ## [1.0.7](https://github.com/upstars-global/test-repo/compare/v1.0.6...v1.0.7) (2025-02-18)
 
 
