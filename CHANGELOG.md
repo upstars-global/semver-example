@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/upstars-global/test-repo/compare/v2.0.0...v2.0.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* CHANGELOG ([b699551](https://github.com/upstars-global/test-repo/commit/b69955134fdaac2530ecc3dd4ff9596fe202454b))
+
 # [2.0.0](https://github.com/upstars-global/test-repo/compare/v1.2.0...v2.0.0) (2025-02-18)
 
 # [1.2.0](https://github.com/upstars-global/test-repo/compare/v1.1.1...v1.2.0) (2025-02-18)
