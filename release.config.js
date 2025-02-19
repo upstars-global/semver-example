@@ -14,20 +14,36 @@ module.exports = {
                 { type: "test", release: "minor" },
                 { type: "chore", release: "minor" },
                 { breaking: true, release: "major" },
-                { release: "patch" } // 🔹 Гарантия, что любой коммит поднимает PATCH
+                { release: "patch" }
             ]
         }],
         ['@semantic-release/release-notes-generator', {
             preset: "conventionalcommits",
             writerOpts: {
                 transform: (commit, context) => {
-                    // ✅ Создаём копию коммита вместо изменения оригинала
                     const newCommit = { ...commit };
 
-                    // Если коммит не содержит тип (fix, feat и т.д.), поместим его в "📌 Other Changes"
-                    if (!newCommit.type) {
-                        newCommit.type = "other";
+                    // Сопоставляем типы коммитов с заголовками секций
+                    const typeMap = {
+                        fix: "🐛 Bug Fixes",
+                        feat: "🚀 Features",
+                        chore: "🔧 Maintenance",
+                        docs: "📖 Documentation",
+                        style: "💅 Code Style",
+                        refactor: "🔨 Refactoring",
+                        perf: "⚡ Performance",
+                        test: "🧪 Testing",
+                        other: "📌 Other Changes"
+                    };
+
+                    // Если тип коммита не задан или неизвестен, отнести в "📌 Other Changes"
+                    newCommit.type = typeMap[newCommit.type] || "📌 Other Changes";
+
+                    // Добавляем `scope`, если он есть
+                    if (newCommit.scope) {
+                        newCommit.subject = `**${newCommit.scope}:** ${newCommit.subject}`;
                     }
+
                     return newCommit;
                 }
             },
@@ -45,7 +61,7 @@ module.exports = {
                 ]
             }
         }],
-        '@semantic-release/changelog', // Обновляет CHANGELOG.md
+        '@semantic-release/changelog',
         ['@semantic-release/exec', {
             prepareCmd: 'node -e "let pkg=require(\'./package.json\'); pkg.version=\'${nextRelease.version}\'; require(\'fs\').writeFileSync(\'package.json\', JSON.stringify(pkg, null, 2));"',
             successCmd: 'node send-slack-notification.js "${nextRelease.version}" "${process.env.REPO_URL}"'
