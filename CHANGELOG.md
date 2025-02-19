@@ -1,3 +1,13 @@
+## [2.4.2](https://github.com/upstars-global/test-repo/compare/v2.4.1...v2.4.2) (2025-02-19)
+
+### other
+
+* Merge remote-tracking branch 'origin/main' ([](https://github.com/upstars-global/test-repo/commit/c4ffbbad3c8f04b099a6aa3dfb0d362c4e303474))
+
+### fix
+
+*  Improve Slack notification handling and add debug logs ([](https://github.com/upstars-global/test-repo/commit/625dcea86d69e020fb493fa3b29a5c20b3db2277))
+
 ## [2.4.1](https://github.com/upstars-global/test-repo/compare/v2.4.0...v2.4.1) (2025-02-19)
 
 ### fix
