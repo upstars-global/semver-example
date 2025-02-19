@@ -48,7 +48,7 @@ module.exports = {
         '@semantic-release/changelog', // Обновляет CHANGELOG.md
         ['@semantic-release/exec', {
             prepareCmd: 'node -e "let pkg=require(\'./package.json\'); pkg.version=\'${nextRelease.version}\'; require(\'fs\').writeFileSync(\'package.json\', JSON.stringify(pkg, null, 2));"',
-            successCmd: 'node send-slack-notification.js "${nextRelease.version}" "${repository.url}"'
+            successCmd: 'node send-slack-notification.js "${nextRelease.version}" "${env.REPO_URL}"'
         }],
         ['@semantic-release/git', {
             assets: ['package.json', 'CHANGELOG.md'],
