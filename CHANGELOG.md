@@ -1,3 +1,9 @@
+## [2.6.2](https://github.com/upstars-global/test-repo/compare/v2.6.1...v2.6.2) (2025-02-19)
+
+### 🐛 Bug Fixes
+
+* Refactor and enhance commit type handling in release config ([](https://github.com/upstars-global/test-repo/commit/074ad563f3693278a999523ad365cc4ced972fc4))
+
 ## [2.6.1](https://github.com/upstars-global/test-repo/compare/v2.6.0...v2.6.1) (2025-02-19)
 
 ### fix
