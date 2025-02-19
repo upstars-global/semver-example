@@ -21,11 +21,14 @@ module.exports = {
             preset: "conventionalcommits",
             writerOpts: {
                 transform: (commit, context) => {
-                    // ✅ Если коммит не имеет типа (fix, feat и т.д.), поместим его в "📌 Other Changes"
-                    if (!commit.type) {
-                        commit.type = "other";
+                    // ✅ Создаём копию коммита вместо изменения оригинала
+                    const newCommit = { ...commit };
+
+                    // Если коммит не содержит тип (fix, feat и т.д.), поместим его в "📌 Other Changes"
+                    if (!newCommit.type) {
+                        newCommit.type = "other";
                     }
-                    return commit;
+                    return newCommit;
                 }
             },
             presetConfig: {
