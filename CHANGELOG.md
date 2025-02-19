@@ -1,3 +1,9 @@
+## [2.4.3](https://github.com/upstars-global/test-repo/compare/v2.4.2...v2.4.3) (2025-02-19)
+
+### Fix
+
+* Update release config to use dynamic REPO_URL ([](https://github.com/upstars-global/test-repo/commit/4e4635e79186736e4c583a07f56a6358e3d78abe))
+
 ## [2.4.2](https://github.com/upstars-global/test-repo/compare/v2.4.1...v2.4.2) (2025-02-19)
 
 ### other
