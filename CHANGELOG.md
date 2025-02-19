@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/upstars-global/test-repo/compare/v2.3.0...v2.3.1) (2025-02-19)
+
+### other
+
+* Refactor commit transformation to use immutable copies ([](https://github.com/upstars-global/test-repo/commit/78aecdb6b448c97e4281363d1feed0feaa6ef02e))
+* Update release config for better commit type handling ([](https://github.com/upstars-global/test-repo/commit/243ee923bcd456d92ed1b964cf08109334e8a2f7))
+
 ## [2.3.0](https://github.com/upstars-global/test-repo/compare/v2.2.5...v2.3.0) (2025-02-19)
 
 ### 🧪 Testing
