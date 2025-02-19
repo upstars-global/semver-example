@@ -1,3 +1,9 @@
+## [2.4.1](https://github.com/upstars-global/test-repo/compare/v2.4.0...v2.4.1) (2025-02-19)
+
+### fix
+
+* add Slack notification on release success ([](https://github.com/upstars-global/test-repo/commit/c3f9ce9d2ef7553fbba002d5926c7c53fa1845b3))
+
 ## [2.4.0](https://github.com/upstars-global/test-repo/compare/v2.3.1...v2.4.0) (2025-02-19)
 
 ### feat
