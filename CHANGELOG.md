@@ -1,3 +1,9 @@
+## [2.3.0](https://github.com/upstars-global/test-repo/compare/v2.2.5...v2.3.0) (2025-02-19)
+
+### 🧪 Testing
+
+* new commit ([5891a9e](https://github.com/upstars-global/test-repo/commit/5891a9e67888640687a7140f7b4579fd727cd52b))
+
 ## [2.2.5](https://github.com/upstars-global/test-repo/compare/v2.2.4...v2.2.5) (2025-02-19)
 
 ## [2.2.4](https://github.com/upstars-global/test-repo/compare/v2.2.3...v2.2.4) (2025-02-19)
