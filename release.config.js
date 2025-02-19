@@ -31,7 +31,8 @@ module.exports = {
                     { type: "style", section: "💅 Code Style", hidden: false },
                     { type: "refactor", section: "🔨 Refactoring", hidden: false },
                     { type: "perf", section: "⚡ Performance", hidden: false },
-                    { type: "test", section: "🧪 Testing", hidden: false }
+                    { type: "test", section: "🧪 Testing", hidden: false },
+                    { type: "*", section: "📌 Other Changes", hidden: false }
                 ]
             }
         }],
