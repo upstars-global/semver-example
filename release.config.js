@@ -29,9 +29,10 @@ module.exports = {
                     { type: "refactor", section: "🔨 Refactoring", hidden: false },
                     { type: "perf", section: "⚡ Performance", hidden: false },
                     { type: "test", section: "🧪 Testing", hidden: false },
-                    { type: "*", section: "📌 Other Changes", hidden: false } // 🔹 Логируем все коммиты
+                    { type: "*", section: "📌 Other Changes", hidden: false }
                 ]
-            }
+            },
+            includeCommits: "all" // 🔹 Теперь записываем все коммиты, даже без Conventional Commits
         }],
         '@semantic-release/changelog', // Обновляет CHANGELOG.md
         ['@semantic-release/exec', {
