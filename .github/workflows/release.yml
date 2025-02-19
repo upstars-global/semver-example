@@ -23,8 +23,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Debug environment variables
+        run: echo "🔹 SLACK_WEBHOOK_URL=${{ secrets.SLACK_WEBHOOK_URL != '' && 'SET' || 'NOT SET' }}"
+
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # ✅ Обязательно передаем Webhook
         run: npx semantic-release

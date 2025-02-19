@@ -41,7 +41,7 @@ module.exports = {
                     { type: "refactor", section: "🔨 Refactoring", hidden: false },
                     { type: "perf", section: "⚡ Performance", hidden: false },
                     { type: "test", section: "🧪 Testing", hidden: false },
-                    { type: "other", section: "📌 Other Changes", hidden: false } // ✅ Теперь все коммиты без типа будут логироваться
+                    { type: "other", section: "📌 Other Changes", hidden: false }
                 ]
             }
         }],

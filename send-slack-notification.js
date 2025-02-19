@@ -4,6 +4,11 @@ const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL; // URL вебхука
 const version = process.argv[2]; // Версия из аргумента
 const repoUrl = process.argv[3]; // Ссылка на репозиторий
 
+console.log("🔹 Отправка Slack-уведомления...");
+console.log("🔹 Версия релиза:", version);
+console.log("🔹 Репозиторий:", repoUrl);
+console.log("🔹 Webhook URL:", SLACK_WEBHOOK_URL ? "✅ Найден" : "❌ Отсутствует");
+
 if (!SLACK_WEBHOOK_URL) {
     console.error("❌ Ошибка: Переменная окружения SLACK_WEBHOOK_URL не задана.");
     process.exit(1);
@@ -27,11 +32,19 @@ const req = https.request(
         },
     },
     (res) => {
-        if (res.statusCode === 200) {
-            console.log("✅ Уведомление успешно отправлено в Slack.");
-        } else {
-            console.error(`❌ Ошибка отправки: ${res.statusCode}`);
-        }
+        let responseData = "";
+        res.on("data", (chunk) => {
+            responseData += chunk;
+        });
+
+        res.on("end", () => {
+            console.log(`🔹 Ответ Slack: ${res.statusCode} ${responseData}`);
+            if (res.statusCode === 200) {
+                console.log("✅ Уведомление успешно отправлено в Slack.");
+            } else {
+                console.error(`❌ Ошибка отправки: ${res.statusCode}`);
+            }
+        });
     }
 );
 
