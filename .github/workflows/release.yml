@@ -24,11 +24,11 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Debug environment variables
-        run: echo "🔹 SLACK_WEBHOOK_URL=${{ secrets.SLACK_WEBHOOK_URL != '' && 'SET' || 'NOT SET' }}"
+        run: echo "🔹 REPO_URL=${{ github.server_url }}/${{ github.repository }}"
 
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          REPO_URL: "https://github.com/${{ github.repository }}"
+          REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
         run: npx semantic-release
