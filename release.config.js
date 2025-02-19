@@ -14,11 +14,20 @@ module.exports = {
                 { type: "test", release: "minor" },
                 { type: "chore", release: "minor" },
                 { breaking: true, release: "major" },
-                { release: "patch" } // По умолчанию всегда patch
+                { release: "patch" } // 🔹 Гарантия, что любой коммит поднимает PATCH
             ]
         }],
         ['@semantic-release/release-notes-generator', {
             preset: "conventionalcommits",
+            writerOpts: {
+                transform: (commit, context) => {
+                    // ✅ Если коммит не имеет типа (fix, feat и т.д.), поместим его в "📌 Other Changes"
+                    if (!commit.type) {
+                        commit.type = "other";
+                    }
+                    return commit;
+                }
+            },
             presetConfig: {
                 types: [
                     { type: "fix", section: "🐛 Bug Fixes", hidden: false },
@@ -29,10 +38,9 @@ module.exports = {
                     { type: "refactor", section: "🔨 Refactoring", hidden: false },
                     { type: "perf", section: "⚡ Performance", hidden: false },
                     { type: "test", section: "🧪 Testing", hidden: false },
-                    { type: "*", section: "📌 Other Changes", hidden: false }
+                    { type: "other", section: "📌 Other Changes", hidden: false } // ✅ Теперь все коммиты без типа будут логироваться
                 ]
-            },
-            includeCommits: "all" // 🔹 Теперь записываем все коммиты, даже без Conventional Commits
+            }
         }],
         '@semantic-release/changelog', // Обновляет CHANGELOG.md
         ['@semantic-release/exec', {
