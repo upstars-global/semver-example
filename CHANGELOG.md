@@ -1,3 +1,9 @@
+## [2.5.0](https://github.com/upstars-global/test-repo/compare/v2.4.4...v2.5.0) (2025-02-19)
+
+### style
+
+* Enhance Slack notifications with additional release details ([](https://github.com/upstars-global/test-repo/commit/903821d07b0f7401ccdca3c6ddebfe3dc3d6fad7))
+
 ## [2.4.4](https://github.com/upstars-global/test-repo/compare/v2.4.3...v2.4.4) (2025-02-19)
 
 ### other
