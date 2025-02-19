@@ -1,3 +1,9 @@
+## [2.6.0](https://github.com/upstars-global/test-repo/compare/v2.5.0...v2.6.0) (2025-02-19)
+
+### style
+
+* Update Slack notification script with translations and UI fixes ([](https://github.com/upstars-global/test-repo/commit/c70e099be3f8afa6a626618028df8cf6f891c4fa))
+
 ## [2.5.0](https://github.com/upstars-global/test-repo/compare/v2.4.4...v2.5.0) (2025-02-19)
 
 ### style
