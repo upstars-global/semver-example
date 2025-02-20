@@ -1,3 +1,13 @@
+## [3.0.0](https://github.com/upstars-global/test-repo/compare/v2.8.0...v3.0.0) (2025-02-20)
+
+### ⚠ BREAKING CHANGE
+
+* qweqweqwe
+
+### 🧪 Testing
+
+* qweqweqwe ([](https://github.com/upstars-global/test-repo/commit/c95890fb7e89e8f44aba1fbce6b6110072a4570d))
+
 ## [2.8.0](https://github.com/upstars-global/test-repo/compare/v2.7.0...v2.8.0) (2025-02-20)
 
 ### 🧪 Testing
