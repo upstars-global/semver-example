@@ -33,13 +33,14 @@ module.exports = {
                         refactor: "🔨 Refactoring",
                         perf: "⚡ Performance",
                         test: "🧪 Testing",
+                        breaking: "⚠ Breaking Changes",
                         other: "📌 Other Changes"
                     };
 
-                    // Проверяем, есть ли breaking change
-                    if (newCommit.notes && newCommit.notes.length > 0) {
+                    // Проверяем, есть ли breaking change (breaking: true или "BREAKING CHANGE:")
+                    if (commit.breaking || (commit.notes && commit.notes.length > 0)) {
                         newCommit.type = "⚠ Breaking Changes";
-                        newCommit.subject = `**BREAKING CHANGE:** ${newCommit.notes.map(note => note.text).join(" ")}`;
+                        newCommit.subject = `**BREAKING CHANGE:** ${commit.notes.map(note => note.text).join(" ")}`;
                     } else {
                         // Если тип коммита не найден, относим его в "📌 Other Changes"
                         newCommit.type = typeMap[newCommit.type] || "📌 Other Changes";
@@ -71,8 +72,8 @@ module.exports = {
                     { type: "refactor", section: "🔨 Refactoring", hidden: false },
                     { type: "perf", section: "⚡ Performance", hidden: false },
                     { type: "test", section: "🧪 Testing", hidden: false },
-                    { type: "other", section: "📌 Other Changes", hidden: false },
-                    { type: "BREAKING_CHANGES", section: "⚠ Breaking Changes", hidden: false } // Добавляем секцию для breaking changes
+                    { type: "breaking", section: "⚠ Breaking Changes", hidden: false },
+                    { type: "other", section: "📌 Other Changes", hidden: false }
                 ]
             }
         }],
