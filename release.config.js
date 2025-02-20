@@ -19,49 +19,6 @@ module.exports = {
         }],
         ['@semantic-release/release-notes-generator', {
             preset: "conventionalcommits",
-            /*writerOpts: {
-                transform: (commit, context) => {
-                    const newCommit = { ...commit };
-
-                    // Сопоставляем типы коммитов с заголовками секций
-                    const typeMap = {
-                        fix: "🐛 Bug Fixes",
-                        feat: "🚀 Features",
-                        chore: "🔧 Maintenance",
-                        docs: "📖 Documentation",
-                        style: "💅 Code Style",
-                        refactor: "🔨 Refactoring",
-                        perf: "⚡ Performance",
-                        test: "🧪 Testing",
-                        breaking: "⚠ Breaking Changes",
-                        other: "📌 Other Changes"
-                    };
-
-                    // Проверяем, есть ли breaking change (breaking: true или "BREAKING CHANGE:")
-                    if (commit.breaking || (commit.notes && commit.notes.length > 0)) {
-                        newCommit.type = "⚠ Breaking Changes";
-                        newCommit.subject = `**BREAKING CHANGE:** ${commit.notes.map(note => note.text).join(" ")}`;
-                    } else {
-                        // Если тип коммита не найден, относим его в "📌 Other Changes"
-                        newCommit.type = typeMap[newCommit.type] || "📌 Other Changes";
-                    }
-
-                    // Добавляем `scope`, если он есть
-                    let commitText = newCommit.subject;
-                    if (newCommit.scope) {
-                        commitText = `**${newCommit.scope}:** ${commitText}`;
-                    }
-
-                    // Добавляем ссылку на коммит в GitHub
-                    if (newCommit.hash) {
-                        newCommit.subject = `${commitText} ([${newCommit.hash.substring(0, 7)}](${context.repositoryUrl}/commit/${newCommit.hash}))`;
-                    } else {
-                        newCommit.subject = commitText;
-                    }
-
-                    return newCommit;
-                }
-            },*/
             presetConfig: {
                 types: [
                     { type: "fix", section: "🐛 Bug Fixes", hidden: false },
