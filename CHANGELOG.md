@@ -1,3 +1,9 @@
+## [3.1.0](https://github.com/upstars-global/test-repo/compare/v3.0.0...v3.1.0) (2025-02-20)
+
+### 🚀 Features
+
+* add feature (#10) ([](https://github.com/upstars-global/test-repo/commit/a47324ac8091340e72d5cf575dccc39361386dd8)), closes [#10](https://github.com/upstars-global/test-repo/issues/10)
+
 ## [3.0.0](https://github.com/upstars-global/test-repo/compare/v2.8.0...v3.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGE
