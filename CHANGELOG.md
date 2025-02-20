@@ -1,3 +1,9 @@
+## [3.1.4](https://github.com/upstars-global/test-repo/compare/v3.1.3...v3.1.4) (2025-02-20)
+
+### ⚡ Performance
+
+* test perf tag ([6174d06](https://github.com/upstars-global/test-repo/commit/6174d06428fddc2ff63da96b8c1a315f0889ff63))
+
 ## [3.1.3](https://github.com/upstars-global/test-repo/compare/v3.1.2...v3.1.3) (2025-02-20)
 
 ### 🐛 Bug Fixes
