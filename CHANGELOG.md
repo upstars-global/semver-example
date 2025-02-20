@@ -1,3 +1,9 @@
+## [4.1.0](https://github.com/upstars-global/test-repo/compare/v4.0.0...v4.1.0) (2025-02-20)
+
+### 🧪 Testing
+
+* Update console log message in test-file.js ([b70f689](https://github.com/upstars-global/test-repo/commit/b70f689f1a2d51cb1a436bec6957b17b6acf9d1a))
+
 ## [4.0.0](https://github.com/upstars-global/test-repo/compare/v3.2.1...v4.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
