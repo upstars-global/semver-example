@@ -1,1 +1,1 @@
-console.log("test monot sq 1")
+console.log("test monot sq 2")
