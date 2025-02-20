@@ -19,7 +19,7 @@ module.exports = {
         }],
         ['@semantic-release/release-notes-generator', {
             preset: "conventionalcommits",
-            writerOpts: {
+            /*writerOpts: {
                 transform: (commit, context) => {
                     const newCommit = { ...commit };
 
@@ -61,7 +61,7 @@ module.exports = {
 
                     return newCommit;
                 }
-            },
+            },*/
             presetConfig: {
                 types: [
                     { type: "fix", section: "🐛 Bug Fixes", hidden: false },
