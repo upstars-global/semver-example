@@ -1,3 +1,9 @@
+## [2.8.0](https://github.com/upstars-global/test-repo/compare/v2.7.0...v2.8.0) (2025-02-20)
+
+### 🧪 Testing
+
+* Update test log message in test-file.js (#9) ([](https://github.com/upstars-global/test-repo/commit/d882943c1d336c694172ff88bcba8a6a8abaca4c)), closes [#9](https://github.com/upstars-global/test-repo/issues/9)
+
 ## [2.7.0](https://github.com/upstars-global/test-repo/compare/v2.6.4...v2.7.0) (2025-02-20)
 
 ### 🧪 Testing
