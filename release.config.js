@@ -13,7 +13,7 @@ module.exports = {
                 { type: "docs", release: "minor" },
                 { type: "test", release: "minor" },
                 { type: "chore", release: "minor" },
-                { breaking: true, release: "major" },
+                { breaking: true, release: "major" }, // Обрабатываем BREAKING CHANGE
                 { release: "patch" }
             ]
         }],
@@ -36,12 +36,26 @@ module.exports = {
                         other: "📌 Other Changes"
                     };
 
-                    // Если тип коммита не задан или неизвестен, отнести в "📌 Other Changes"
-                    newCommit.type = typeMap[newCommit.type] || "📌 Other Changes";
+                    // Проверяем, есть ли breaking change
+                    if (newCommit.notes && newCommit.notes.length > 0) {
+                        newCommit.type = "⚠ Breaking Changes";
+                        newCommit.subject = `**BREAKING CHANGE:** ${newCommit.notes.map(note => note.text).join(" ")}`;
+                    } else {
+                        // Если тип коммита не найден, относим его в "📌 Other Changes"
+                        newCommit.type = typeMap[newCommit.type] || "📌 Other Changes";
+                    }
 
                     // Добавляем `scope`, если он есть
+                    let commitText = newCommit.subject;
                     if (newCommit.scope) {
-                        newCommit.subject = `**${newCommit.scope}:** ${newCommit.subject}`;
+                        commitText = `**${newCommit.scope}:** ${commitText}`;
+                    }
+
+                    // Добавляем ссылку на коммит в GitHub
+                    if (newCommit.hash) {
+                        newCommit.subject = `${commitText} ([${newCommit.hash.substring(0, 7)}](${context.repositoryUrl}/commit/${newCommit.hash}))`;
+                    } else {
+                        newCommit.subject = commitText;
                     }
 
                     return newCommit;
@@ -57,14 +71,14 @@ module.exports = {
                     { type: "refactor", section: "🔨 Refactoring", hidden: false },
                     { type: "perf", section: "⚡ Performance", hidden: false },
                     { type: "test", section: "🧪 Testing", hidden: false },
-                    { type: "other", section: "📌 Other Changes", hidden: false }
+                    { type: "other", section: "📌 Other Changes", hidden: false },
+                    { type: "BREAKING_CHANGES", section: "⚠ Breaking Changes", hidden: false } // Добавляем секцию для breaking changes
                 ]
             }
         }],
         '@semantic-release/changelog',
         ['@semantic-release/exec', {
             prepareCmd: 'node -e "let pkg=require(\'./package.json\'); pkg.version=\'${nextRelease.version}\'; require(\'fs\').writeFileSync(\'package.json\', JSON.stringify(pkg, null, 2));"',
-            // successCmd: 'node send-slack-notification.js "${nextRelease.version}" "${process.env.REPO_URL}"'
         }],
         ['@semantic-release/git', {
             assets: ['package.json', 'CHANGELOG.md'],
