@@ -1,3 +1,5 @@
+## [3.2.1](https://github.com/upstars-global/test-repo/compare/v3.2.0...v3.2.1) (2025-02-20)
+
 ## [3.2.0](https://github.com/upstars-global/test-repo/compare/v3.1.4...v3.2.0) (2025-02-20)
 
 ### 🚀 Features
