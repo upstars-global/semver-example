@@ -1,3 +1,9 @@
+## [3.1.3](https://github.com/upstars-global/test-repo/compare/v3.1.2...v3.1.3) (2025-02-20)
+
+### 🐛 Bug Fixes
+
+* - try fix ([b85d5ff](https://github.com/upstars-global/test-repo/commit/b85d5ffac5c8db243bd8c14bef8e8d693edb4fc4))
+
 ## [3.1.2](https://github.com/upstars-global/test-repo/compare/v3.1.1...v3.1.2) (2025-02-20)
 
 ### ⚠ Breaking Changes
