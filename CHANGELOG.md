@@ -1,3 +1,9 @@
+## [3.2.0](https://github.com/upstars-global/test-repo/compare/v3.1.4...v3.2.0) (2025-02-20)
+
+### 🚀 Features
+
+* test  remove redundant blank line in release config ([4e25e05](https://github.com/upstars-global/test-repo/commit/4e25e055c794a9fc6b9bedd8ff66c11683e5f52e))
+
 ## [3.1.4](https://github.com/upstars-global/test-repo/compare/v3.1.3...v3.1.4) (2025-02-20)
 
 ### ⚡ Performance
