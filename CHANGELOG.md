@@ -1,3 +1,9 @@
+## [2.6.4](https://github.com/upstars-global/test-repo/compare/v2.6.3...v2.6.4) (2025-02-20)
+
+### 📌 Other Changes
+
+* Sq witout title 2 (#6) ([](https://github.com/upstars-global/test-repo/commit/99788d0068349195df4443234952ef2c823d4cf1)), closes [#6](https://github.com/upstars-global/test-repo/issues/6)
+
 ## [2.6.3](https://github.com/upstars-global/test-repo/compare/v2.6.2...v2.6.3) (2025-02-20)
 
 ### 📌 Other Changes
