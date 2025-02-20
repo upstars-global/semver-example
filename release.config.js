@@ -58,7 +58,6 @@ module.exports = {
                     } else {
                         newCommit.subject = commitText;
                     }
-
                     return newCommit;
                 }
             },*/
