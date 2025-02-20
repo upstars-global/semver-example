@@ -1,3 +1,9 @@
+## [3.1.2](https://github.com/upstars-global/test-repo/compare/v3.1.1...v3.1.2) (2025-02-20)
+
+### ⚠ Breaking Changes
+
+* qwe qwe qwe ([b242a9f](undefined/commit/b242a9f83e777c1168d7b00646cab96ad8c7e95f)) ([](https://github.com/upstars-global/test-repo/commit/b242a9f83e777c1168d7b00646cab96ad8c7e95f))
+
 ## [3.1.1](https://github.com/upstars-global/test-repo/compare/v3.1.0...v3.1.1) (2025-02-20)
 
 ### 📌 Other Changes
