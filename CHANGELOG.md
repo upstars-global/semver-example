@@ -1,3 +1,13 @@
+## [4.0.0](https://github.com/upstars-global/test-repo/compare/v3.2.1...v4.0.0) (2025-02-20)
+
+### ⚠ BREAKING CHANGES
+
+* Remove redundant changelog entry type from config
+
+### 🐛 Bug Fixes
+
+* Remove redundant changelog entry type from config ([0a62478](https://github.com/upstars-global/test-repo/commit/0a62478cb6db6efe55680453e641ea411cd7631a))
+
 ## [3.2.1](https://github.com/upstars-global/test-repo/compare/v3.2.0...v3.2.1) (2025-02-20)
 
 ## [3.2.0](https://github.com/upstars-global/test-repo/compare/v3.1.4...v3.2.0) (2025-02-20)
