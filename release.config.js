@@ -25,7 +25,7 @@ module.exports = {
             writerOpts: {
                 transform: (commit, context) => {
                     const newCommit = { ...commit };
-
+                    console.log(JSON.stringify({commit, context}, null, 2))
                     // Формируем `repositoryUrl`, если он не передан в `context`
                     let repoUrl = context.repositoryUrl;
                     if (!repoUrl && context.host && context.owner && context.repository) {
@@ -70,20 +70,30 @@ module.exports = {
 
                     // Добавляем ссылку на коммит
                     if (newCommit.hash && repoUrl) {
-                        newCommit.subject = `${commitText} ([${newCommit.hash.substring(0, 7)}](${repoUrl}/commit/${newCommit.hash}))`;
+                        console.log({commitText})
+                        console.log({'newCommit.commit.short':newCommit.commit.short})
+                        console.log({repoUrl})
+                        console.log({"newCommit.hash": newCommit.hash})
+                        console.log("1", `${commitText} ([${newCommit.commit.short}](${repoUrl}/commit/${newCommit.hash}))`)
+                        newCommit.subject = `${commitText} ([${newCommit.commit.short}](${repoUrl}/commit/${newCommit.hash}))`;
                     } else {
                         newCommit.subject = commitText;
                     }
 
-                    // Убираем дублирующие ссылки и `[skip ci]` в `commit.body`
+                    // Очищаем `commit.body` от дублирующихся ссылок и `[skip ci]`
                     if (commit.body) {
-                        newCommit.subject += `\n\n${commit.body
-                        .replace(/\(\[\]\(.*?\)\)/g, "") // Убираем пустые `[]()`
-                        .replace(/\[skip ci\]/gi, "")   // Убираем `[skip ci]`
-                        .replace(newCommit.subject, "") // Убираем дублирующийся заголовок коммита
-                        .trim()}`;
-                    }
+                        const cleanedBody = commit.body
+                        .replace(/\(\[\]\(.*?\)\)/g, "")  // Убираем пустые `[]()`
+                        .replace(/\[skip ci\]/gi, "")    // Убираем `[skip ci]`
+                        .replace(newCommit.subject, "")  // Убираем дублирующийся заголовок коммита
+                        .trim();
 
+                        // Добавляем `body` только если он не пустой
+                        if (cleanedBody) {
+                            newCommit.subject += `\n\n${cleanedBody}`;
+                        }
+                    }
+                    console.log("FINAL newCommit", {newCommit})
                     return newCommit;
                 }
             },
