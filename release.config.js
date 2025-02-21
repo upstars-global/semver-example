@@ -75,9 +75,11 @@ module.exports = {
                         newCommit.subject = commitText;
                     }
 
-                    // Добавляем `body`, если есть, и убираем пустые ссылки
+                    // Убираем дублирующие ссылки и `[skip ci]` в `commit.body`
                     if (commit.body) {
-                        newCommit.subject += `\n\n${commit.body.replace(/\(\[\]\(.*?\)\)/g, "")}`;
+                        newCommit.subject += `\n\n${commit.body.replace(/\(\[\]\(.*?\)\)/g, "").replace(/\[skip ci\]/gi, "")}`;
+                    } else if (commit.message) {
+                        newCommit.subject += `\n\n${commit.message.replace(/\[skip ci\]/gi, "")}`;
                     }
 
                     return newCommit;
