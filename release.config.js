@@ -20,6 +20,7 @@ module.exports = {
         [ "@semantic-release/release-notes-generator", {
             preset: "conventionalcommits",
             writerOpts: {
+
                 transform: (commit, context) => {
                     const newCommit = { ...commit };
                     const typeMap = {
