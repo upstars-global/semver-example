@@ -20,11 +20,19 @@ module.exports = {
         ["@semantic-release/release-notes-generator", {
             preset: "conventionalcommits",
             parserOpts: {
-                noteKeywords: ["BREAKING CHANGE", "BREAKING CHANGES"] // Учитываем оба варианта
+                noteKeywords: ["BREAKING CHANGE", "BREAKING CHANGES"]
             },
             writerOpts: {
                 transform: (commit, context) => {
                     const newCommit = { ...commit };
+
+                    console.log({commit, context})
+
+                    // Получаем repositoryUrl, проверяем его наличие
+                    const repoUrl = context.options?.repositoryUrl || context.repositoryUrl || "";
+                    if (!repoUrl) {
+                        console.error("❌ repositoryUrl is undefined in context");
+                    }
 
                     // Карта типов коммитов для заголовков
                     const typeMap = {
@@ -48,7 +56,7 @@ module.exports = {
                         newCommit.type = typeMap[newCommit.type] || "📌 Other Changes";
                     }
 
-                    // Удаляем коммиты с `[skip ci]`, чтобы они не попадали в CHANGELOG.md
+                    // Удаляем коммиты с `[skip ci]`
                     if (newCommit.subject.includes("[skip ci]")) {
                         return false;
                     }
@@ -59,15 +67,14 @@ module.exports = {
                         commitText = `**${newCommit.scope}:** ${commitText}`;
                     }
 
-                    // Добавляем ссылку на коммит
-                    const repoUrl = context.options.repositoryUrl || context.repositoryUrl;
-                    if (newCommit.hash) {
+                    // Добавляем ссылку на коммит, если repoUrl определен
+                    if (newCommit.hash && repoUrl) {
                         newCommit.subject = `${commitText} ([${newCommit.hash.substring(0, 7)}](${repoUrl}/commit/${newCommit.hash}))`;
                     } else {
                         newCommit.subject = commitText;
                     }
 
-                    // Добавляем `body` (описание коммита) в `subject`, но без дублирования ссылки
+                    // Добавляем `body`, если есть
                     if (commit.body) {
                         newCommit.subject += `\n\n${commit.body.replace(/\(\[\]\(.*?\)\)/g, "")}`;
                     }
