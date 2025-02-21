@@ -1,3 +1,13 @@
+## [5.0.0](https://github.com/upstars-global/test-repo/compare/v4.0.0...v5.0.0) (2025-02-21)
+
+### ⚠ BREAKING CHANGE
+
+* deleted CHANGELOG.md (2)
+
+### 🐛 Bug Fixes
+
+* deleted CHANGELOG.md (2) ([](https://github.com/upstars-global/test-repo/commit/434fa5c4401381fcdd649a51bc437f3ceaab3d8d))
+
 ## [4.0.0](https://github.com/upstars-global/test-repo/compare/v3.1.2...v4.0.0) (2025-02-21)
 
 ### ⚠ BREAKING CHANGE
