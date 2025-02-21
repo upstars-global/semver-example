@@ -7,6 +7,22 @@
 ### 🚀 Features
 
 * Simplify release configuration rules ([51a1caa](https://github.com/upstars-global/test-repo/commit/51a1caa07af75a02468a119a81dc4f294c754be2))
+* test local  SQ ([cac9995](https://github.com/upstars-global/test-repo/commit/cac9995b453e9bde8bc3e04bb1bba637554ece32))
+
+### 🔧 Maintenance
+
+* **release:** 3.1.3 [skip ci] ([9fee60b](https://github.com/upstars-global/test-repo/commit/9fee60b20aeb58d75d04f002127f5793fd392be2))
+* **release:** 3.2.0 [skip ci] ([22f606d](https://github.com/upstars-global/test-repo/commit/22f606dfff151445ec70889a56e0af09b8c27755))
+
+## [3.2.0](https://github.com/upstars-global/test-repo/compare/v3.1.2...v3.2.0) (2025-02-21)
+
+### 🐛 Bug Fixes
+
+* - try fix ([b85d5ff](https://github.com/upstars-global/test-repo/commit/b85d5ffac5c8db243bd8c14bef8e8d693edb4fc4))
+
+### 🚀 Features
+
+* Simplify release configuration rules ([51a1caa](https://github.com/upstars-global/test-repo/commit/51a1caa07af75a02468a119a81dc4f294c754be2))
 
 ### 🔧 Maintenance
 
