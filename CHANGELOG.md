@@ -1,3 +1,23 @@
+## [5.1.0](https://github.com/upstars-global/test-repo/compare/v5.0.5...v5.1.0) (2025-02-21)
+
+### 🚀 Features
+
+* test hbs
+ ([94dc6fa](https://github.com/upstars-global/test-repo/commit/94dc6fa9c9907aa4b15c303d7efe40efc8ae453a))
+
+
+
+### 🧪 Testing
+
+* squashed
+ ([c257ee3](https://github.com/upstars-global/test-repo/commit/c257ee3ccd62ee7e94f972f9f066eff11bb861c7))
+
+
+
+    feat: test changelog 1
+
+    fix: HASH commit in changelog 1
+
 ## [5.0.5](https://github.com/upstars-global/test-repo/compare/v5.0.4...v5.0.5) (2025-02-21)
 
 ### 🐛 Bug Fixes
