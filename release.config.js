@@ -1,5 +1,5 @@
 module.exports = {
-    branches: ["main"], // Релизные ветки
+    branches: ["main"],
     preset: "conventionalcommits",
     plugins: [
         ["@semantic-release/commit-analyzer", {
@@ -26,12 +26,13 @@ module.exports = {
                 transform: (commit, context) => {
                     const newCommit = { ...commit };
 
-                    console.log({commit, context})
-
-                    // Получаем repositoryUrl, проверяем его наличие
-                    const repoUrl = context.options?.repositoryUrl || context.repositoryUrl || "";
+                    // Формируем `repositoryUrl`, если он не передан в `context`
+                    let repoUrl = context.repositoryUrl;
+                    if (!repoUrl && context.host && context.owner && context.repository) {
+                        repoUrl = `${context.host}/${context.owner}/${context.repository}`;
+                    }
                     if (!repoUrl) {
-                        console.error("❌ repositoryUrl is undefined in context");
+                        console.error("❌ repositoryUrl is undefined, constructed URL is also empty.");
                     }
 
                     // Карта типов коммитов для заголовков
@@ -67,14 +68,14 @@ module.exports = {
                         commitText = `**${newCommit.scope}:** ${commitText}`;
                     }
 
-                    // Добавляем ссылку на коммит, если repoUrl определен
+                    // Добавляем ссылку на коммит
                     if (newCommit.hash && repoUrl) {
                         newCommit.subject = `${commitText} ([${newCommit.hash.substring(0, 7)}](${repoUrl}/commit/${newCommit.hash}))`;
                     } else {
                         newCommit.subject = commitText;
                     }
 
-                    // Добавляем `body`, если есть
+                    // Добавляем `body`, если есть, и убираем пустые ссылки
                     if (commit.body) {
                         newCommit.subject += `\n\n${commit.body.replace(/\(\[\]\(.*?\)\)/g, "")}`;
                     }
