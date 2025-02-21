@@ -14,7 +14,7 @@ module.exports = {
                 { type: "test", release: "minor" },
                 { type: "chore", release: "minor" },
                 { breaking: true, release: "major" }, // Обрабатываем BREAKING CHANGE
-                { release: "patch" }
+                // { release: "patch" }
             ]
         }],
         ['@semantic-release/release-notes-generator', {
@@ -73,7 +73,7 @@ module.exports = {
                     { type: "perf", section: "⚡ Performance", hidden: false },
                     { type: "test", section: "🧪 Testing", hidden: false },
                     { type: "breaking", section: "⚠ Breaking Changes", hidden: false },
-                    { type: "other", section: "📌 Other Changes", hidden: false }
+                    // { type: "other", section: "📌 Other Changes", hidden: false }
                 ]
             }
         }],
