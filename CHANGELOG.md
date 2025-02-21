@@ -1,3 +1,9 @@
+## [5.0.2](https://github.com/upstars-global/test-repo/compare/v5.0.1...v5.0.2) (2025-02-21)
+
+### 🐛 Bug Fixes
+
+* changelog 3 ([eb63a6a](https://github.com/upstars-global/test-repo/commit/eb63a6ac304739985d968d66ef4279e47510f7d4)) ([](https://github.com/upstars-global/test-repo/commit/eb63a6ac304739985d968d66ef4279e47510f7d4))
+
 ## [5.0.1](https://github.com/upstars-global/test-repo/compare/v5.0.0...v5.0.1) (2025-02-21)
 
 ### 🐛 Bug Fixes
