@@ -22,11 +22,12 @@ module.exports = {
             parserOpts: {
                 noteKeywords: ["BREAKING CHANGE", "BREAKING CHANGES"]
             },
-            writerOpts: {
+            /*writerOpts: {
+
                 transform: (commit, context) => {
                     const newCommit = { ...commit };
-                    console.log(JSON.stringify({commit, context}, null, 2))
-                    // Формируем `repositoryUrl`, если он не передан в `context`
+
+                    // Формируем `repositoryUrl`
                     let repoUrl = context.repositoryUrl;
                     if (!repoUrl && context.host && context.owner && context.repository) {
                         repoUrl = `${context.host}/${context.owner}/${context.repository}`;
@@ -68,24 +69,18 @@ module.exports = {
                         commitText = `**${newCommit.scope}:** ${commitText}`;
                     }
 
-                    // Добавляем ссылку на коммит
-                    if (newCommit.hash && repoUrl) {
-                        console.log({commitText})
-                        console.log({'newCommit.commit.short':newCommit.commit.short})
-                        console.log({repoUrl})
-                        console.log({"newCommit.hash": newCommit.hash})
-                        console.log("1", `${commitText} ([${newCommit.commit.short}](${repoUrl}/commit/${newCommit.hash}))`)
-                        newCommit.subject = `${commitText} ([${newCommit.commit.short}](${repoUrl}/commit/${newCommit.hash}))`;
-                    } else {
-                        newCommit.subject = commitText;
+                    // Проверяем, содержит ли `subject` уже ссылку на коммит
+                    const commitUrl = `(${repoUrl}/commit/${newCommit.hash})`;
+                    if (!newCommit.subject.includes(commitUrl)) {
+                        newCommit.subject = `${commitText} ${newCommit.commit.short}`;
                     }
 
-                    // Очищаем `commit.body` от дублирующихся ссылок и `[skip ci]`
+                    // Очищаем `commit.body` от пустых ссылок и `[skip ci]`
                     if (commit.body) {
                         const cleanedBody = commit.body
                         .replace(/\(\[\]\(.*?\)\)/g, "")  // Убираем пустые `[]()`
                         .replace(/\[skip ci\]/gi, "")    // Убираем `[skip ci]`
-                        .replace(newCommit.subject, "")  // Убираем дублирующийся заголовок коммита
+                        .replace(commitUrl, "")          // Убираем дублирующуюся ссылку
                         .trim();
 
                         // Добавляем `body` только если он не пустой
@@ -93,10 +88,10 @@ module.exports = {
                             newCommit.subject += `\n\n${cleanedBody}`;
                         }
                     }
-                    console.log("FINAL newCommit", {newCommit})
+
                     return newCommit;
                 }
-            },
+            },*/
             presetConfig: {
                 types: [
                     { type: "fix", section: "🐛 Bug Fixes", hidden: false },
