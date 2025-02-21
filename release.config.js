@@ -17,6 +17,7 @@ module.exports = {
                 { release: "patch" },
             ],
         } ],
+
         [ "@semantic-release/release-notes-generator", {
             preset: "conventionalcommits",
             writerOpts: {
