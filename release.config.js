@@ -77,9 +77,11 @@ module.exports = {
 
                     // Убираем дублирующие ссылки и `[skip ci]` в `commit.body`
                     if (commit.body) {
-                        newCommit.subject += `\n\n${commit.body.replace(/\(\[\]\(.*?\)\)/g, "").replace(/\[skip ci\]/gi, "")}`;
-                    } else if (commit.message) {
-                        newCommit.subject += `\n\n${commit.message.replace(/\[skip ci\]/gi, "")}`;
+                        newCommit.subject += `\n\n${commit.body
+                        .replace(/\(\[\]\(.*?\)\)/g, "") // Убираем пустые `[]()`
+                        .replace(/\[skip ci\]/gi, "")   // Убираем `[skip ci]`
+                        .replace(newCommit.subject, "") // Убираем дублирующийся заголовок коммита
+                        .trim()}`;
                     }
 
                     return newCommit;
