@@ -7,7 +7,6 @@ function finalizeContext (context) {
             commit.bodyLines = commit.body?.split('\n').filter((line) => line !== '') ?? []
         }
     }
-
     return context
 }
 
@@ -61,7 +60,14 @@ export default {
         }],
         ["@semantic-release/git", {
             assets: ["package.json", "CHANGELOG.md"],
-            message: "chore(release): ${nextRelease.version} [skip ci]"
+            message: "chore(release): ${nextRelease.version} [skip ci]",
+            push: false  // ❗ Отключаем прямой пуш
+        }],
+        ["@semantic-release/github", {
+            successComment: "🎉 This PR is ready to be merged!",
+            failComment: "❌ The release failed. Check the logs.",
+            labels: ["automerge"],
+            addReleases: "bottom"
         }]
     ]
 };
