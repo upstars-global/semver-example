@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 const commitPartial = readFileSync('./changelog-template-commit.hbs', { encoding: 'utf-8' })
 
+
 function finalizeContext (context) {
     for (const commitGroup of context.commitGroups) {
         for (const commit of commitGroup.commits) {
