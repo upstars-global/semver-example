@@ -12,7 +12,7 @@ function finalizeContext (context) {
 }
 
 export default {
-    branches: ["main"],
+    branches: ["main", "protected-release-branch"],
     preset: "conventionalcommits",
     plugins: [
         ["@semantic-release/commit-analyzer", {
