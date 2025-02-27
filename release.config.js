@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 const commitPartial = readFileSync('./changelog-template-commit.hbs', { encoding: 'utf-8' })
 
+
 function finalizeContext (context) {
     for (const commitGroup of context.commitGroups) {
         for (const commit of commitGroup.commits) {
@@ -12,7 +13,7 @@ function finalizeContext (context) {
 }
 
 export default {
-    branches: ["main"],
+    branches: ["main", "protected-release-branch"],
     preset: "conventionalcommits",
     plugins: [
         ["@semantic-release/commit-analyzer", {
