@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 const commitPartial = readFileSync('./changelog-template-commit.hbs', { encoding: 'utf-8' })
 
-function finalizeContext (context) {
+function finalizeContext(context) {
     for (const commitGroup of context.commitGroups) {
         for (const commit of commitGroup.commits) {
             commit.bodyLines = commit.body?.split('\n').filter((line) => line !== '') ?? []
