@@ -6,6 +6,10 @@ on:
       - main
       - protected-release-branch
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,27 +28,32 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Debug environment variables
-        run: echo "🔹 REPO_URL=${{ github.server_url }}/${{ github.repository }}"
-
       - name: Run semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  # Используем GH_PAT для создания PR
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
         run: npx semantic-release
 
-  auto-merge:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GH_PAT }}
+          branch: release-updates
+          base: protected-release-branch
+          title: "chore(release): Automated release updates"
+          body: "This PR contains the latest release updates."
+          labels: "automerge"
+          assignees: "upstars-global-bot"
+
       - name: Auto-approve and merge PR
         uses: hmarr/auto-approve-action@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GH_PAT }}
 
-      - name: Merge PR
-        uses: pascalgn/automerge-action@v0.15.0
+      - name: Enable auto-merge
+        uses: pascalgn/automerge-action@v0.15.6
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: "automerge"
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        with:
+          mergeMethod: squash
