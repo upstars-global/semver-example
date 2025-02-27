@@ -13,6 +13,8 @@ if (!SLACK_WEBHOOK_URL) {
     process.exit(1);
 }
 
+
+
 // Get the first 10 lines from CHANGELOG.md (latest updates)
 let changelog = "";
 try {
