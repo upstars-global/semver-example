@@ -30,7 +30,7 @@ jobs:
 
       - name: Run semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Используем GH_TOKEN для создания PR
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  # Используем GH_PAT для создания PR
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
         run: npx semantic-release
@@ -38,7 +38,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
           branch: release-updates
           base: protected-release-branch
           title: "chore(release): Automated release updates"
@@ -49,11 +49,11 @@ jobs:
       - name: Auto-approve and merge PR
         uses: hmarr/auto-approve-action@v3
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GH_PAT }}
 
       - name: Enable auto-merge
         uses: pascalgn/automerge-action@v0.15.6
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         with:
           mergeMethod: squash
