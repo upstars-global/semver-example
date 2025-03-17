@@ -28,32 +28,62 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  # Используем GH_PAT для создания PR
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
-        run: npx semantic-release
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GH_PAT }}
-          branch: release-updates
-          base: protected-release-branch
-          title: "chore(release): Automated release updates"
-          body: "This PR contains the latest release updates."
-          labels: "automerge"
-          assignees: "upstars-global-bot"
+      - name: Get GitHub App Token
+        id: app_token
+        run: |
+          echo "${{ secrets.GH_APP_PRIVATE_KEY }}" > private-key.pem
+          TOKEN=$(node <<EOF
+          const { createAppAuth } = require("@octokit/auth-app");
+          const { readFileSync } = require("fs");
+          (async () => {
+          const auth = createAppAuth({
+           appId: "${{ secrets.GH_APP_ID }}",
+           privateKey: readFileSync("private-key.pem", "utf8"),
+           installationId: "${{ secrets.GH_INSTALLATION_ID }}"
+          });
+          const installationAuthentication = await auth({ type: "installation" });
+          console.log(installationAuthentication.token);
+          })();
+          EOF
+          )
+          echo "::add-mask::$TOKEN"
+          echo "GITHUB_TOKEN=$TOKEN" >> $GITHUB_ENV
 
-      - name: Auto-approve and merge PR
-        uses: hmarr/auto-approve-action@v3
-        with:
-          github-token: ${{ secrets.GH_PAT }}
+          - name: Run semantic-release
+            env:
+              GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+              SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+              REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
+            run: npx semantic-release
 
-      - name: Enable auto-merge
-        uses: pascalgn/automerge-action@v0.15.6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-        with:
-          mergeMethod: squash
+#      - name: Run semantic-release
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  # Используем GH_PAT для создания PR
+#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#          REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
+#        run: npx semantic-release
+
+#      - name: Create Pull Request
+#        uses: peter-evans/create-pull-request@v5
+#        with:
+#          token: ${{ secrets.GH_PAT }}
+#          branch: release-updates
+#          base: protected-release-branch
+#          title: "chore(release): Automated release updates"
+#          body: "This PR contains the latest release updates."
+#          labels: "automerge"
+#          assignees: "d-tashchi-upstarsм"
+#
+#      - name: Auto-approve and merge PR
+#        uses: hmarr/auto-approve-action@v3
+#        with:
+#          github-token: ${{ secrets.GH_PAT }}
+#
+#      - name: Enable auto-merge
+#        uses: pascalgn/automerge-action@v0.15.6
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+#          persist-credentials: false # <--- this
+#        with:
+#          mergeMethod: squash
