@@ -3,21 +3,25 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - master
       - protected-release-branch
-
-permissions:
-  contents: write
-  pull-requests: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
+
+    environment: production
+
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -28,6 +32,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Install @octokit/auth-app
+        run: yarn add @octokit/auth-app
 
       - name: Get GitHub App Token
         id: app_token
@@ -37,53 +43,22 @@ jobs:
           const { createAppAuth } = require("@octokit/auth-app");
           const { readFileSync } = require("fs");
           (async () => {
-          const auth = createAppAuth({
-           appId: "${{ secrets.GH_APP_ID }}",
-           privateKey: readFileSync("private-key.pem", "utf8"),
-           installationId: "${{ secrets.GH_INSTALLATION_ID }}"
-          });
-          const installationAuthentication = await auth({ type: "installation" });
-          console.log(installationAuthentication.token);
+            const auth = createAppAuth({
+              appId: "${{ secrets.GH_APP_ID }}",
+              privateKey: readFileSync("private-key.pem", "utf8"),
+              installationId: "${{ secrets.GH_INSTALLATION_ID }}"
+            });
+            const installationAuthentication = await auth({ type: "installation" });
+            console.log(installationAuthentication.token);
           })();
           EOF
           )
           echo "::add-mask::$TOKEN"
           echo "GITHUB_TOKEN=$TOKEN" >> $GITHUB_ENV
 
-          - name: Run semantic-release
-            env:
-              GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
-              SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-              REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
-            run: npx semantic-release
-
-#      - name: Run semantic-release
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  # Используем GH_PAT для создания PR
-#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#          REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
-#        run: npx semantic-release
-
-#      - name: Create Pull Request
-#        uses: peter-evans/create-pull-request@v5
-#        with:
-#          token: ${{ secrets.GH_PAT }}
-#          branch: release-updates
-#          base: protected-release-branch
-#          title: "chore(release): Automated release updates"
-#          body: "This PR contains the latest release updates."
-#          labels: "automerge"
-#          assignees: "d-tashchi-upstarsм"
-#
-#      - name: Auto-approve and merge PR
-#        uses: hmarr/auto-approve-action@v3
-#        with:
-#          github-token: ${{ secrets.GH_PAT }}
-#
-#      - name: Enable auto-merge
-#        uses: pascalgn/automerge-action@v0.15.6
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-#          persist-credentials: false # <--- this
-#        with:
-#          mergeMethod: squash
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPO_URL: "${{ github.server_url }}/${{ github.repository }}"
+        run: npx semantic-release
