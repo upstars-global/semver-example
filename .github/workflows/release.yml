@@ -32,9 +32,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Install @octokit/auth-app
-        run: yarn add @octokit/auth-app
-
       - name: Get GitHub App Token
         id: app_token
         run: |
@@ -55,6 +52,7 @@ jobs:
           )
           echo "::add-mask::$TOKEN"
           echo "GITHUB_TOKEN=$TOKEN" >> $GITHUB_ENV
+          rm -f private-key.pem
 
       - name: Run semantic-release
         env:
