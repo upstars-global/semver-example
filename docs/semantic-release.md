@@ -7,7 +7,7 @@ This document describes the commit message conventions used in our project to en
 Each commit message must follow the **Conventional Commits** specification, optionally including a JIRA task reference:
 
 ```
-<type>(<scope>): <JIRA-TICKET> - <short description>
+<type>[<scope>]: <JIRA-TICKET> - <short description>
 
 <optional body>
 
