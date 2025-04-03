@@ -1,3 +1,22 @@
+## [1.2.1](https://github.com/upstars-global/semver-example/compare/v1.2.0...v1.2.1) (2025-04-03)
+
+### 🔨 Refactoring
+
+* semver fixes & docs 
+ ([b63800d](https://github.com/upstars-global/semver-example/commit/b63800d2be18070711122649b356b432742aeb0e))
+
+
+
+    * fix: fix vulnerabilities in release.yaml
+
+    * fix: add actual dependencies for project
+
+    * feat: update release.config.js commit types behaviour
+
+    * docs: add documentation for how to use semantic release commit types in projects
+
+    * docs: fix semantic-release.md
+
 ## [1.2.0](https://github.com/upstars-global/semver-example/compare/v1.1.1...v1.2.0) (2025-03-17)
 
 ### 🚀 Features
